@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-32x32.png">
+    <title>Sorteador</title>
+</head>
+
+<body onselectstart="return false;">
+
+
+    <div class="container">
+
+        <h1 id="titulo">Sorteador de Números</h1>
+        <h2>Insira um valor mínimo e um valor máximo</h2>
+
+        <div class="inputs">
+            <div id="valor"><input id="min" type="number" min="1"
+                    onkeypress="return event.charCode >= 48 && event.charCode <= 57" max="99999" maxlength="5"
+                    placeholder="Mínimo"></div>
+            <div id="valor2"> <input id="max" type="number" min=1 max="99999"
+                    onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="5" placeholder="Máximo">
+            </div>
+
+        </div>
+
+        <script>
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                input.oninput = () => {
+                    if (input.value.length > input.maxLength) input.value = input.value.slice(0,
+                        input.maxLength)
+                }
+            })
+        </script>
+
+        <button class="button" onclick="sortear()">Sortear Agora</button>
+
+        <h1 id="resultado"></h1>
+        <audio id="sound" src="./assets/Winning Sound Effect.mp3"></audio>
+        <audio id="error" src="./assets/SaveTube.App - Caetano Veloso - Como você é burro. (320 kbps).mp3"></audio>
+        <audio id="error2" src="./assets/Error _ Sound Effects (No Copyright).mp3"></audio>
+        <h1 id="bolinha"></h1>
+        <h1 id="erro"></h1>
+    </div>
+</body>
+
+</html>
